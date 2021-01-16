@@ -7,7 +7,7 @@ function task1(array $strings, $unite = false)
     }
 
     if ($unite) {
-        return '<p>' . implode(',', $strings) . '</p>';
+        return "<p>" . implode(",", $strings) . "</p>";
     }
 }
 
@@ -16,12 +16,12 @@ function task2(string $arithmetic, ...$numbers)
 {
     $value = 0;
     if ($arithmetic != '*' and $arithmetic != '/' and $arithmetic != '-' and $arithmetic != '+') {
-        return 'Неправильный арифметический оператор';
+        return "Неправильный арифметический оператор";
     }
 
     foreach ($numbers as $number) {
         if (!is_int($number) and !is_float($number)) {
-            return 'Введите корректное число';
+            return "Введите корректное число";
         }
         eval("\$value = ($value == 0 ? $number : $value $arithmetic $number);");
 
@@ -34,22 +34,20 @@ function task2(string $arithmetic, ...$numbers)
 function task3(int $a, int $b)
 {
     if (!is_int($a) or !is_int($b)) {
-        return 'Введите корректное число';
+        return "Введите корректное число";
     }
 
     if ($a > $b) {
-        return 'Первое число не должно быть больше второго';
+        return "Первое число не должно быть больше второго";
     }
 
-    $rows = $a;
-    $cols = $b;
-    $multiTable = "<table border='1' align='center''>";
+    $multiTable = "<table border='1' align='center'>";
 
-    for ($tr = 1; $tr <= $rows; $tr++) {
+    for ($tr = 1; $tr <= $a; $tr++) {
 
         $multiTable .= "<tr>";
 
-        for ($td = 1; $td <= $cols; $td++) {
+        for ($td = 1; $td <= $b; $td++) {
             $multiTable .= "<td>" . $tr * $td . "</td>";
 
         }
@@ -60,4 +58,16 @@ function task3(int $a, int $b)
     $multiTable .= "</table>";
 
     return $multiTable;
+}
+
+// Задание #6
+function task6($file)
+{
+    if (file_exists($file)) {
+        $str = htmlentities(file_get_contents($file)); // Получаем информацию из файла и преобразуем все символы в HTML
+        return $str;
+    } else {
+        return 'Неверный путь к файлу';
+    }
+
 }
