@@ -1,6 +1,6 @@
 <?php
 // Задание #1
-function task1(array $strings, $unite = false)
+function task1(array $strings, bool $unite = false)
 {
     foreach ($strings as $string) {
         echo "<p>" . $string . "</p>";
@@ -61,7 +61,7 @@ function task3(int $a, int $b)
 }
 
 // Задание #6
-function task6($file)
+function task6(string $file)
 {
     if (file_exists($file)) {
         $str = htmlentities(file_get_contents($file)); // Получаем информацию из файла и преобразуем все символы в HTML
