@@ -1,12 +1,17 @@
 <?php
 // четвертое задание
-$day = 4;
+$day = 'thursday';
 
-switch (true) {
-    case ($day >= 1 and $day <= 5):
+switch ($day) {
+    case 'monday':
+    case 'tuesday':
+    case 'wednesday':
+    case 'thursday':
+    case 'friday':
         echo 'Это рабочий день';
         break;
-    case ($day == 6 or $day == 7):
+    case 'saturday':
+    case 'sunday':
         echo 'Это выходной день';
         break;
     default:
